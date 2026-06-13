@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shivalaya Group | Graphic Design Agency</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--bg:#121212;
+--card:#1b1b1b;
+--cyan:#00FFFF;
+--magenta:#FF00FF;
+--lime:#32CD32;
+--text:#ffffff;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:var(--bg);
+color:white;
+overflow-x:hidden;
+}
+
+.container{
+width:90%;
+max-width:1300px;
+margin:auto;
+}
+
+/* HEADER */
+
+header{
+position:sticky;
+top:0;
+z-index:1000;
+background:rgba(18,18,18,.95);
+backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 0;
+}
+
+.logo{
+font-size:30px;
+font-weight:800;
+color:var(--cyan);
+text-shadow:0 0 15px var(--cyan);
+}
+
+.nav-links{
+display:flex;
+gap:25px;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+transition:.3s;
+}
+
+.nav-links a:hover{
+color:var(--magenta);
+}
+
+/* HERO */
+
+.hero{
+min-height:90vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px;
+}
+
+.hero h1{
+font-size:clamp(3rem,7vw,6rem);
+line-height:1.1;
+color:var(--cyan);
+text-shadow:0 0 20px var(--cyan);
+margin-bottom:20px;
+}
+
+.hero p{
+max-width:700px;
+margin:auto;
+font-size:18px;
+opacity:.85;
+}
+
+.hero-btn{
+display:inline-block;
+margin-top:35px;
+padding:16px 38px;
+background:var(--magenta);
+color:white;
+text-decoration:none;
+border-radius:50px;
+font-weight:600;
+box-shadow:0 0 25px var(--magenta);
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+50%{
+box-shadow:0 0 45px var(--magenta);
+}
+}
+
+/* SECTION */
+
+section{
+padding:90px 0;
+}
+
+.section-title{
+text-align:center;
+font-size:48px;
+margin-bottom:50px;
+color:var(--cyan);
+text-shadow:0 0 15px var(--cyan);
+}
+
+/* SERVICES */
+
+.services-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.service-card{
+background:var(--card);
+border:1px solid rgba(255,255,255,.08);
+border-radius:20px;
+overflow:hidden;
+transition:.4s;
+}
+
+.service-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px rgba(0,255,255,.3);
+}
+
+.sample-frame{
+height:220px;
+border-bottom:2px dashed var(--cyan);
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+padding:15px;
+}
+
+.sample-frame img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+.placeholder{
+color:var(--cyan);
+text-align:center;
+font-size:14px;
+}
+
+.service-content{
+padding:20px;
+}
+
+.service-content h3{
+margin-bottom:10px;
+color:var(--lime);
+}
+
+.service-content p{
+opacity:.8;
+font-size:14px;
+margin-bottom:15px;
+}
+
+.order-btn{
+width:100%;
+padding:14px;
+border:none;
+border-radius:10px;
+background:var(--magenta);
+color:white;
+font-weight:600;
+cursor:pointer;
+box-shadow:0 0 15px var(--magenta);
+}
+
+/* PORTFOLIO */
+
+.portfolio-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+
+.portfolio-item{
+height:250px;
+border:2px solid var(--cyan);
+border-radius:15px;
+overflow:hidden;
+}
+
+.portfolio-item img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* CONTACT */
+
+.contact{
+text-align:center;
+}
+
+.contact p{
+margin:10px 0;
+font-size:18px;
+}
+
+/* MODAL */
+
+.modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.8);
+display:none;
+justify-content:center;
+align-items:center;
+padding:20px;
+z-index:9999;
+}
+
+.modal.active{
+display:flex;
+}
+
+.modal-box{
+background:#181818;
+width:100%;
+max-width:700px;
+border-radius:20px;
+padding:30px;
+animation:popup .4s ease;
+max-height:90vh;
+overflow:auto;
+}
+
+@keyframes popup{
+from{
+opacity:0;
+transform:scale(.8);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+.close{
+float:right;
+font-size:30px;
+cursor:pointer;
+}
+
+.form-group{
+margin-bottom:15px;
+}
+
+input,
+select,
+textarea{
+width:100%;
+padding:14px;
+background:#222;
+border:1px solid #333;
+border-radius:10px;
+color:white;
+}
+
+textarea{
+height:150px;
+resize:none;
+}
+
+.upload{
+padding:15px;
+border:2px dashed var(--cyan);
+border-radius:10px;
+}
+
+.submit-btn{
+width:100%;
+padding:15px;
+border:none;
+border-radius:10px;
+background:var(--lime);
+color:black;
+font-weight:700;
+cursor:pointer;
+margin-top:10px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.navbar{
+flex-direction:column;
+gap:15px;
+}
+
+.nav-links{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.section-title{
+font-size:34px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<div class="container navbar">
+
+<div class="logo">Shivalaya Group</div>
+
+<div class="nav-links">
+<a href="#">Home</a>
+<a href="#services">Services</a>
+<a href="#portfolio">Portfolio</a>
+<a href="#order">Order Now</a>
+</div>
+
+</div>
+</header>
+
+<section class="hero">
+<div>
+<h1>Transforming Ideas into Stunning Designs</h1>
+<p>
+Professional Graphic Design Services for Businesses,
+Brands, Doctors, Authors, Wedding Projects & Social Media.
+</p>
+<a href="#services" class="hero-btn">Explore Services</a>
+</div>
+</section>
+
+<section id="services">
+<div class="container">
+
+<h2 class="section-title">Our Services</h2>
+
+<div class="services-grid" id="servicesGrid"></div>
+
+</div>
+</section>
+
+<section id="portfolio">
+<div class="container">
+
+<h2 class="section-title">Portfolio</h2>
+
+<div class="portfolio-grid">
+<div class="portfolio-item"><img src="https://via.placeholder.com/600x400" alt=""></div>
+<div class="portfolio-item"><img src="https://via.placeholder.com/600x400" alt=""></div>
+<div class="portfolio-item"><img src="https://via.placeholder.com/600x400" alt=""></div>
+<div class="portfolio-item"><img src="https://via.placeholder.com/600x400" alt=""></div>
+</div>
+
+</div>
+</section>
+
+<section class="contact">
+<div class="container">
+
+<h2 class="section-title">Contact</h2>
+
+<p>📞 +91 7804038321</p>
+<p>📧 prajapatianjali270@gmail.com</p>
+
+</div>
+</section>
+
+<div class="modal" id="modal">
+
+<div class="modal-box">
+
+<span class="close" onclick="closeModal()">×</span>
+
+<h2 style="margin-bottom:20px;color:#00FFFF;">Place Your Order</h2>
+
+<form>
+
+<div class="form-group">
+<input type="text" placeholder="Client Name">
+</div>
+
+<div class="form-group">
+<input type="text" placeholder="Contact Number">
+</div>
+
+<div class="form-group">
+<input type="email" placeholder="Email">
+</div>
+
+<div class="form-group">
+<select id="serviceSelect"></select>
+</div>
+
+<div class="form-group">
+<textarea placeholder="Add Your Matter / Instructions"></textarea>
+</div>
+
+<div class="form-group upload">
+<input type="file" multiple>
+</div>
+
+<button class="submit-btn">Submit Order</button>
+
+</form>
+
+</div>
+
+</div>
+
+<script>
+
+const services=[
+"Logo Design",
+"Social Media Design",
+"Banner / Poster",
+"Doctor file / Letterhead",
+"Invitation card",
+"Book Cover",
+"Wedding Album",
+"Pre-wedding Posts",
+"Leaflet / Pamphlet",
+"Brochure",
+"Branding"
+];
+
+const grid=document.getElementById("servicesGrid");
+
+services.forEach(service=>{
+
+grid.innerHTML+=`
+<div class="service-card">
+
+<div class="sample-frame">
+<div class="placeholder">
+<img src="https://via.placeholder.com/600x400?text=Work+Sample">
+<p style="margin-top:10px">
+Your Service Work Sample / Photo Goes Here
+</p>
+</div>
+</div>
+
+<div class="service-content">
+<h3>${service}</h3>
+<p>Premium quality professional design service.</p>
+
+<button class="order-btn"
+onclick="openModal('${service}')">
+Order Now
+</button>
+
+</div>
+</div>
+`;
+
+});
+
+function openModal(service){
+
+document.getElementById("modal")
+.classList.add("active");
+
+let select=document.getElementById("serviceSelect");
+
+select.innerHTML="";
+
+services.forEach(item=>{
+select.innerHTML+=`
+<option ${item===service?'selected':''}>
+${item}
+</option>`;
+});
+
+}
+
+function closeModal(){
+document.getElementById("modal")
+.classList.remove("active");
+}
+
+window.onclick=function(e){
+
+if(e.target===document.getElementById("modal")){
+closeModal();
+}
+
+}
+
+</script>
+
+</body>
+</html>
